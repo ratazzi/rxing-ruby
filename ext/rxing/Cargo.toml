@@ -1,0 +1,21 @@
+[package]
+name = "rxing"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+magnus = "0.7.1"
+rb-sys = { version = "*", default-features = false, features = [
+  "stable-api-compiled-fallback",
+] }
+rxing = "0.7.1"
+image = "0.25.5"
+
+[build-dependencies]
+rb-sys = "0.9.87"
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.52", features = ["Win32_Foundation"] }
